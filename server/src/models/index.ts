@@ -1,3 +1,2 @@
-// import User from './user.js';
-import User from "./user.js";
+import User from "./User.js";
 export  { User };
