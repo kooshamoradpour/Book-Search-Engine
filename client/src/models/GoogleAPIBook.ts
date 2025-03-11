@@ -1,4 +1,5 @@
 export interface GoogleAPIVolumeInfo {
+  [x: string]: string;
   title: string;
   authors: string[];
   description: string;

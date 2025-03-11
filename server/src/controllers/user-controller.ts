@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 // import user model
-import User from '../models/User.js';
+import User from '../models/user';
 // import sign token function from auth
 import { signToken } from '../services/auth.js';
 
@@ -24,7 +24,7 @@ export const createUser = async (req: Request, res: Response) => {
   if (!user) {
     return res.status(400).json({ message: 'Something is wrong!' });
   }
-  const token = signToken(user.username, user.email, user._id);
+  const token = signToken(user.username, user.email, user.id);
   return res.json({ token, user });
 };
 
@@ -41,7 +41,7 @@ export const login = async (req: Request, res: Response) => {
   if (!correctPw) {
     return res.status(400).json({ message: 'Wrong password!' });
   }
-  const token = signToken(user.username, user.email, user._id);
+  const token = signToken(user.username, user.email, user.id);
   return res.json({ token, user });
 };
 
